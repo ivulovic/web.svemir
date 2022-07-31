@@ -16,6 +16,14 @@
   .banners-bottom{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
+  }
+
+  @media screen and (max-width: 840px) {
+    .banners-top,
+    .banners-middle,
+    .banners-bottom{
+      grid-template-columns: 1fr;
+    }
   }
 }

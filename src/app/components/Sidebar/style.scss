@@ -10,6 +10,8 @@
     overflow-y: auto;
     overflow-x: hidden;
     border-right: 1px solid var(--border-color);
+
+
     .logo {
      display: none;
      width: 30px;
@@ -135,6 +137,26 @@
         width: 145px;
         & + & {
         border-bottom: none;
+        }
+    }
+
+    & {
+        @media screen and (max-width: 840px) {
+            width: 90px;
+            border-right: 1px solid var(--border-color);
+            .logo-expand,
+            .side-title {
+                display: none;
+            }
+            .logo {
+                display: flex;
+            }
+            .side-wrapper {
+                width: 30px;
+            }
+            .side-menu svg {
+                margin-right: 30px;
+            }
         }
     }
    }

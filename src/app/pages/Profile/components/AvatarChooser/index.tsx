@@ -52,7 +52,7 @@ export default function AvatarChooser(): JSX.Element {
         </div>
         <div className="form-group">
           <p className="ta-right">
-            {avatarNumber} out of {maxAvatars}
+            {avatarNumber} / {maxAvatars}
           </p>
           <div className="button-group">
             <Button className={avatarNumber !== minAvatars ? 'active' : ''} onClick={(): void => onAvatarChange(-1)}>
