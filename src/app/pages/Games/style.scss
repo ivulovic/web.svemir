@@ -1,0 +1,21 @@
+.games-page-container {
+  .view{
+    display: grid;
+    gap: 2rem;
+  }
+  .banners-top{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+  .banners-middle{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  .banners-bottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}

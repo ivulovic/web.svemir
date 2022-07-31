@@ -1,60 +1,67 @@
-.header{
+.header {
   display: flex;
   align-items: center;
   flex-shrink: 0;
   padding: 30px;
-
   border-bottom: 1px solid var(--border-color);
-   .user {
+  input {
+    max-width: 50%;
+  }
+  @media screen and (max-width: 840px) {
+    input {
+      max-width: 100%;
+    }
+  }
+  .user {
     &-settings {
-     display: flex;
-     align-items: center;
-     padding-left: 20px;
-     flex-shrink: 0;
-     margin-left: auto;
-     svg {
-      width: 10px;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
       flex-shrink: 0;
-      @media screen and (max-width: 575px) {
-       display: none;
-      }
-     }
-     .notify {
-      position: relative;
+      margin-left: auto;
       svg {
-       width: 20px;
-       margin-left: 24px;
-       flex-shrink: 0;
+        width: 10px;
+        flex-shrink: 0;
+        @media screen and (max-width: 575px) {
+          display: none;
+        }
       }
-      .notification {
-       width: 8px;
-       height: 8px;
-       border-radius: 50%;
-       background-color: #ec5252;
-       position: absolute;
-       right: 1px;
-       border: 1px solid var(--theme-bg);
-       top: -2px;
-       @media screen and (max-width: 575px) {
-        display: none;
-       }
+      .notify {
+        position: relative;
+        svg {
+          width: 20px;
+          margin-left: 24px;
+          flex-shrink: 0;
+        }
+        .notification {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #ec5252;
+          position: absolute;
+          right: 1px;
+          border: 1px solid var(--theme-bg);
+          top: -2px;
+          @media screen and (max-width: 575px) {
+            display: none;
+          }
+        }
       }
-     }
     }
     &-img {
-     width: 30px;
-     height: 30px;
-     flex-shrink: 0;
-     object-fit: cover;
-     border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 50%;
     }
     &-name {
-     color: #fff;
-     font-size: 14px;
-     margin: 0 6px 0 12px;
-     @media screen and (max-width: 575px) {
-      display: none;
-     }
+      color: #fff;
+      font-size: 14px;
+      margin: 0 6px 0 12px;
+      @media screen and (max-width: 575px) {
+        display: none;
+      }
     }
-   }
+  }
 }

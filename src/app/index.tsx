@@ -5,6 +5,9 @@ import Header from '@components/Header';
 import Sidebar from '@components/Sidebar';
 import AboutPage from '@pages/About';
 import DiscoverPage from '@pages/Discover';
+import GamesPage from '@pages/Games';
+import GameDetails from '@pages/Games/views/Details';
+import GameOverview from '@pages/Games/views/Overview';
 import ProfilePage from '@pages/Profile';
 // import HomePage from '@pages/Home';
 import Login from '@pages/Profile/views/Login';
@@ -30,6 +33,10 @@ const App = (): JSX.Element => {
                 <Route path="/profile" element={<ProfilePage />}>
                   <Route path="" element={<Login />} />
                   <Route path="register" element={<Register />} />
+                </Route>
+                <Route path="/games" element={<GamesPage />}>
+                  <Route path="" element={<GameOverview />} />
+                  <Route path=":id" element={<GameDetails />} />
                 </Route>
                 <Route path="/" element={<DiscoverPage />} />
               </Routes>

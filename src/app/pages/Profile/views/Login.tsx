@@ -11,7 +11,7 @@ export default function Login(): JSX.Element {
   const onRedirect = (): void => navigate('/profile/register');
   return (
     <div className="view anim">
-      <PageSection>Login into your account</PageSection>
+      <PageSection>Access your account</PageSection>
       <div className="form-group">
         <p>Recovery Code:</p>
         <Input
@@ -22,10 +22,10 @@ export default function Login(): JSX.Element {
       </div>
       <div className="footer-group">
         <Button className={recoveryCode?.trim().length >= 10 ? 'active' : ''} onClick={onSubmit}>
-          Create Account
+          Enter
         </Button>
         <Button className="link" onClick={onRedirect}>
-          Not having an account? Lets create it.
+          Not having an account?
         </Button>
       </div>
     </div>

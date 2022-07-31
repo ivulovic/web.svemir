@@ -1,0 +1,34 @@
+.avatar-chooser {
+
+  .avatar-image {
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+
+    animation-name: player;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+    bottom: 0.3rem;
+
+    @keyframes player {
+      0% {
+        transform: scale3d(1, 1, 1);
+      }
+      30% {
+        transform: scale3d(1, 1.03, 1);
+      }
+      60% {
+        transform: scale3d(1.03, 1, 1);
+      }
+      100% {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  }
+
+}

@@ -1,0 +1,100 @@
+.banner-card{
+    // background-image: url(https://assets.codepen.io/3364143/skate-removebg-preview.png);
+    background-size: 100%;
+    // background-position-x: 150px;
+    background-color: #31abbd;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px;
+    border-radius: 6px;
+    align-self: stretch;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.3s;
+    background-repeat: no-repeat;
+    min-height: 260px;
+    text-shadow: 1px 0px 1px var(--body-color);
+
+    .banner-card__title{
+        font-size: 25px;
+        max-width: 6ch;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #fff;
+        // margin-bottom: 30px;
+        // background: rgba(21, 13, 13, 0.45);
+        padding: 0.5rem;
+        border-radius: 6px 6px 0px 0px;
+        // margin-top: auto;
+    }
+    .banner-card__author {
+        display: flex;
+        align-items: center;
+        .author-img__wrapper {
+            position: relative;
+            flex-shrink: 0;
+            
+        }
+        .author-img__wrapper svg {
+            width: 16px;
+            padding: 2px;
+            background-color: #fff;
+            color: #0daabc;
+            border-radius: 50%;
+            border: 2px solid #0daabc;
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+        }
+        .author-img {
+            width: 52px;
+            height: 52px;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            padding: 4px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-detail {
+            margin-left: 16px;
+            .author-name {
+                font-size: 15px;
+                color: #fff;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+            .author-info {
+                font-size: 13px;
+                font-weight: 500;
+                color: #fff;
+            }
+            .seperate {
+                width: 3px;
+                height: 3px;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 50%;
+                background-color: #fff;
+                margin: 0 6px;
+            }
+        }
+    }
+    .banner-card__time {
+        background: rgba(21, 13, 13, 0.44);
+        color: #fff;
+        padding: 3px 8px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+    .banner-card-footer{
+        margin-top: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        // background: rgba(21, 13, 13, 0.25);
+        border-radius: 0 6px 6px 6px;
+        padding: 0.5rem;
+    }
+}
