@@ -9,6 +9,7 @@
     transition-duration: 0.2s;
     overflow-y: auto;
     overflow-x: hidden;
+    border-right: 1px solid var(--border-color);
     .logo {
      display: none;
      width: 30px;

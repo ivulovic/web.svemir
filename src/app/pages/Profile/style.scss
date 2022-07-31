@@ -1,0 +1,57 @@
+.profile-page-container {
+  // .features-container {
+  //   margin-bottom: 2rem;
+  //   gap: 2rem;
+  //   .features-title {
+  //     font-size: 2.5rem;
+  //     font-weight: bold;
+  //     margin-bottom: 0.5rem;
+  //   }
+  // }
+  .view{
+    display: grid;
+    gap: 2rem;
+  }
+
+  .form-group {
+    display: grid;
+    gap: 1rem;
+    p {
+      font-size: 14px;
+    }
+  }
+  button.active {
+    color:white!important;
+  }
+  .double-group {
+    display: grid;
+    grid-template-columns: calc(80% - 1rem) 20%;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1px;
+ 
+    .button{
+      &:first-child button{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &:last-child button{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+    }
+  }
+  .footer-group{
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0 0rem 0;
+
+ 
+  }
+}

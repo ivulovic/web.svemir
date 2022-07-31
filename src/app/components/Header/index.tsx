@@ -1,11 +1,10 @@
+import { Input } from '@reactoso-ui';
 import './style.scss';
 
 export default function Header(): JSX.Element {
   return (
     <div className="header">
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
-      </div>
+      <Input placeholder="Search" />
       <div className="user-settings">
         <img
           className="user-img"

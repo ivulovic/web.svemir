@@ -1,17 +1,16 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-// import Header from '@components/Header';
-import Container from '@components/Container';
-import MainContainer from '@components/MainContainer';
+import Header from '@components/Header';
 import Sidebar from '@components/Sidebar';
 import AboutPage from '@pages/About';
-import HomePage from '@pages/Home';
-
-import './style.scss';
-import Header from '@components/Header';
 import DiscoverPage from '@pages/Discover';
+import ProfilePage from '@pages/Profile';
+// import HomePage from '@pages/Home';
+import Login from '@pages/Profile/views/Login';
+import Register from '@pages/Profile/views/Register';
 import StreamPage from '@pages/Stream';
+import './style.scss';
 
 const Loading = (): JSX.Element => <span>Loading...</span>;
 
@@ -19,7 +18,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <Container>
+        <div className="app-wrapper">
           <Sidebar />
           <div className="layout-wrapper">
             <Header />
@@ -28,11 +27,15 @@ const App = (): JSX.Element => {
                 <Route path="/streaming" element={<StreamPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/discover" element={<DiscoverPage />} />
-                <Route path="/" element={<HomePage />} />
+                <Route path="/profile" element={<ProfilePage />}>
+                  <Route path="" element={<Login />} />
+                  <Route path="register" element={<Register />} />
+                </Route>
+                <Route path="/" element={<DiscoverPage />} />
               </Routes>
             </div>
           </div>
-        </Container>
+        </div>
       </Suspense>
     </>
   );

@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 
+import PageHeader from '@components/PageHeader';
 import { Container } from '@reactoso-ui';
 
 import HorizontalCard from './components/HorizontalCard';
 import { ReactRouterBody, ReduxSagaBody, WebpackBody, IntlBody } from './components/HorizontalCard/BodyRenderers';
 import { WebpackIcon, ReactRouterIcon, ReduxSagaIcon, FormatJSIcon } from './icons';
+
 import './style.scss';
-import PageHeader from '@components/PageHeader';
 
 export default function Page(): JSX.Element {
   const featuresRef = useRef(null);
