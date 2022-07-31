@@ -1,0 +1,12 @@
+main.container {
+    background-color: var(--theme-bg);
+    max-height: 900px;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+   }
