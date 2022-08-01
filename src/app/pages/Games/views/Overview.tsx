@@ -2,9 +2,7 @@
 // import { useNavigate } from 'react-router-dom';
 
 import PageSection from '@components/PageSection';
-// import { Button, Input } from '@reactoso-ui';
-import BannerCard from 'packages/ui/components/BannerCard';
-import MediaCard from 'packages/ui/components/MediaCard';
+import { HorizontalCard, BannerCard, MediaCard } from '@reactoso-ui';
 
 export default function Overview(): JSX.Element {
   // const navigate = useNavigate();
@@ -41,6 +39,8 @@ export default function Overview(): JSX.Element {
         <MediaCard />
         <MediaCard />
       </div>
+      <HorizontalCard />
+      <HorizontalCard />
     </div>
   );
 }

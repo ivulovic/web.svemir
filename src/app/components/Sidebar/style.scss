@@ -1,8 +1,8 @@
 
 .sidebar {
-    width: 220px;
+    width: 204px;
     height: 100%;
-    padding: 30px;
+    padding: 26px 16px;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -22,21 +22,36 @@
      align-items: center;
      border-radius: 50%;
      justify-content: center;
-   
      &-expand {
       text-decoration: none;
       color: #fff;
-      font-size: 19px;
-      font-weight: 600;
+    //   font-size: 19px;
+    //   font-weight: 600;
       line-height: 34px;
       position: sticky;
       top: 0;
+      font-family: 'Rubik Moonrocks', cursive;
+      font-size: 44px;
+      background: -webkit-linear-gradient(#8941e3, #0aa0f7b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .flip{
+        background: inherit;
+        transform: rotateX(180deg);
+        display: inline-block;
+        position: relative;
+        top: 7px;
+      }
+
       &:before {
        content: "";
        position: absolute;
        top: -30px;
        left: 0;
-       background: var(--theme-bg);
+    //    background: var(--theme-bg);
        width: 200px;
        height: 70px;
        z-index: -1;
@@ -68,23 +83,23 @@
       }
      }
     }
-    &.collapse {
-     width: 90px;
-     border-right: 1px solid var(--border-color);
-     .logo-expand,
-     .side-title {
-      display: none;
-     }
-     .logo {
-      display: flex;
-     }
-     .side-wrapper {
-      width: 30px;
-     }
-     .side-menu svg {
-      margin-right: 30px;
-     }
-    }
+    // &.collapse {
+    //  width: 90px;
+    //  border-right: 1px solid var(--border-color);
+    //  .logo-expand,
+    //  .side-title {
+    //   display: none;
+    //  }
+    //  .logo {
+    //   display: flex;
+    //  }
+    //  .side-wrapper {
+    //   width: 30px;
+    //  }
+    //  .side-menu svg {
+    //   margin-right: 30px;
+    //  }
+    // }
 
     @keyframes bottom {
         0% {
@@ -142,7 +157,7 @@
 
     & {
         @media screen and (max-width: 840px) {
-            width: 90px;
+            width: 70px;
             border-right: 1px solid var(--border-color);
             .logo-expand,
             .side-title {
