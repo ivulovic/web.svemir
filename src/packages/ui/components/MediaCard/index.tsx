@@ -5,10 +5,7 @@ export default function MediaCard(): JSX.Element {
     <div className="media-card">
       <div className="media-card-time">8 min</div>
       <div className="media-card-wrapper">
-        <img
-          alt=""
-          src="https://play-lh.googleusercontent.com/RNWKPePILHGZWUO6wLZpXaU1atiFGvrfNhKNDszrEb8znaXy29vr6NjqwKNOsgjhbiY"
-        />
+        <img alt="" src="https://assets-prd.ignimgs.com/2022/04/18/kitty-1650294441041.png" />
         <div className="author-img__wrapper media-card-author">
           <svg
             viewBox="0 0 24 24"

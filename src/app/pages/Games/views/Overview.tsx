@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 import PageSection from '@components/PageSection';
-import { Button, Input } from '@reactoso-ui';
+// import { Button, Input } from '@reactoso-ui';
 import BannerCard from 'packages/ui/components/BannerCard';
 import MediaCard from 'packages/ui/components/MediaCard';
 
 export default function Overview(): JSX.Element {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="view anim">
