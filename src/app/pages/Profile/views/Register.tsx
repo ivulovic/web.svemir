@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import AvatarChooser from '@components/AvatarChooser';
 import PageSection from '@components/PageSection';
+import View from '@components/View';
 import { Button, Input } from '@reactoso-ui';
-
-import AvatarChooser from '../components/AvatarChooser';
 
 export default function Register(): JSX.Element {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Register(): JSX.Element {
   const onSubmit = (): void => {};
   const onRedirect = (): void => navigate('/profile');
   return (
-    <div className="view anim">
+    <View>
       <PageSection>Create an account</PageSection>
 
       <div className="form-group">
@@ -30,6 +30,6 @@ export default function Register(): JSX.Element {
           Already have an account?
         </Button>
       </div>
-    </div>
+    </View>
   );
 }

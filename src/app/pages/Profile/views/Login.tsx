@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import PageSection from '@components/PageSection';
+import View from '@components/View';
 import { Button, Input } from '@reactoso-ui';
 
 export default function Login(): JSX.Element {
@@ -10,7 +11,7 @@ export default function Login(): JSX.Element {
   const onSubmit = (): void => {};
   const onRedirect = (): void => navigate('/profile/register');
   return (
-    <div className="view anim">
+    <View>
       <PageSection>Access your account</PageSection>
       <div className="form-group">
         <p>Recovery Code:</p>
@@ -28,6 +29,6 @@ export default function Login(): JSX.Element {
           Not having an account?
         </Button>
       </div>
-    </div>
+    </View>
   );
 }

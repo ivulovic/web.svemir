@@ -1,16 +1,17 @@
-// import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import PageSection from '@components/PageSection';
+import View from '@components/View';
 import { HorizontalCard, BannerCard, MediaCard } from '@reactoso-ui';
 
 export default function Overview(): JSX.Element {
   // const navigate = useNavigate();
-
   return (
-    <div className="view anim">
+    <View>
       <div className="banners-top">
-        <BannerCard title="Mini Golf" image={'https://www.boralavirint.rs/images/bg/mini-golf-bg.jpg'} />
+        <Link to="mini-golf">
+          <BannerCard title="Mini Golf" image={'https://www.boralavirint.rs/images/bg/mini-golf-bg.jpg'} />
+        </Link>
         <BannerCard
           title="Exploding Kittens"
           image={'https://assets-prd.ignimgs.com/2022/04/18/kitty-1650294441041.png'}
@@ -41,6 +42,6 @@ export default function Overview(): JSX.Element {
       </div>
       <HorizontalCard />
       <HorizontalCard />
-    </div>
+    </View>
   );
 }

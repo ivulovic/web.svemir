@@ -7,3 +7,4 @@ export { default as Button } from './components/Button';
 export { default as MediaCard } from './components/MediaCard';
 export { default as BannerCard } from './components/BannerCard';
 export { default as HorizontalCard } from './components/HorizontalCard';
+export { default as Paragraph } from './components/Paragraph';

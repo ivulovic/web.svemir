@@ -1,8 +1,4 @@
 .games-page-container {
-  .view{
-    display: grid;
-    gap: 2rem;
-  }
   .banners-top{
     display: grid;
     width: 100%;
@@ -24,12 +20,21 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
   }
-
+  .banners-top,
+  .banners-middle,
+  .banners-bottom{
+    a{
+      text-decoration: none;
+    }
+  }
   @media screen and (max-width: 840px) {
     .banners-top,
     .banners-middle,
     .banners-bottom{
       grid-template-columns: 1fr;
+      a{
+        text-decoration: none;
+      }
     }
   }
 }
