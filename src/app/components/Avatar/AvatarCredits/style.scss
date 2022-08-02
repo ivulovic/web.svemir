@@ -1,0 +1,25 @@
+.avatar-credits{
+    user-select: none;
+    display: flex;
+    align-items: baseline;
+    color: gold;
+    text-align: center;
+    font-family: "Rubik Moonrocks", cursive;
+    font-size: 2rem;
+    background: var(--button-bg);
+    border-radius: 10px;
+    padding: 0rem 0.5rem;
+    line-height: 4rem;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    .currency{
+        display: flex;
+        font-size: 2rem;
+        margin-left: 0.4rem;
+        // font-family: "Rubik Moonrocks", cursive;
+        // background: -webkit-linear-gradient(#8941e3, rgba(10, 160, 247, 0.7098039216));
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
+    }
+}

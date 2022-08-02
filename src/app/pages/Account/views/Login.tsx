@@ -17,7 +17,7 @@ export default function Login(): JSX.Element {
         <p>Recovery Code:</p>
         <Input
           onChange={(e: any): void => setRecoveryCode(e.target.value)}
-          placeholder="Type in your recovery code"
+          placeholder="Enter your recovery code"
           type="password"
         />
       </div>

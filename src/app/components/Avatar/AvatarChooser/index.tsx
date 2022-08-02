@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import { Button } from '@reactoso-ui';
+
+import AvatarIcon from '../AvatarIcon';
 import './style.scss';
 
 export default function AvatarChooser(): JSX.Element {
@@ -36,10 +38,7 @@ export default function AvatarChooser(): JSX.Element {
       <div className="double-group">
         <div className="form-group">
           <p>Avatar:</p>
-          <div
-            className="avatar-image"
-            style={{ backgroundImage: `url(/images/avatars/${avatarGender}${avatarNumber}.svg)` }}
-          ></div>
+          <AvatarIcon gender={avatarGender} avatar={avatarNumber} />
           <p>Gender:</p>
           <div className="button-group">
             <Button className={avatarGender === 'm' ? 'active' : ''} onClick={(): void => onGenderChange('m')}>

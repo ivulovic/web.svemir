@@ -37,7 +37,22 @@
     display: grid;
     gap: 1rem;
     margin: 1rem 0 0rem 0;
-
- 
   }
+  .profile-avatar{
+    display: grid;
+    justify-content: center;
+    .avatar-username{
+      margin: 0.5rem 0 0.5rem 0;
+    }
+    .paragraph{
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+  }
+  // .profile-layout{
+  //   display: grid;
+  //   gap: 2rem;
+  //   grid-template-columns: 1fr 2fr;
+  // }
 }

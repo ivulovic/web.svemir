@@ -7,7 +7,7 @@ import './style.scss';
 export default function Page(): JSX.Element {
   return (
     <div className="profile-page-container">
-      <PageHeader>Profile</PageHeader>
+      <PageHeader>Account</PageHeader>
       <Outlet />
     </div>
   );
