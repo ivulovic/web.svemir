@@ -21,6 +21,9 @@ const _service = createService({
     register(state, action: PayloadAction<any>) {
       // state.loading = true;
     },
+    update(state, action: PayloadAction<any>) {
+      // state.loading = true;
+    },
     info(state, action: PayloadAction<any>) {
       state.appStatus = AppStatusEnum.NotReady;
       state.loading = true;
@@ -35,7 +38,6 @@ const _service = createService({
       state.loading = false;
       state.isLoggedIn = true;
       state.user = action.payload;
-      // state.appStatus = AppStatusEnum.Ready;
     },
   },
 });

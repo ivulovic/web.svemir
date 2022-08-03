@@ -6,23 +6,38 @@ import PageSection from '@components/PageSection';
 import View from '@components/View';
 import { useAuthControllerScope } from '@controllers/auth';
 import { Button, Input } from '@reactoso-ui';
+import { useSelector } from '@service';
 
 export default function Update(): JSX.Element {
   const navigate = useNavigate();
-  const authController = useAuthControllerScope();
+  const {
+    implementation: {
+      auth: { selectors },
+    },
+    methods,
+  } = useAuthControllerScope();
+  const user = useSelector(selectors.selectAuthUser);
   const [avatarData, setAvatarData] = useState({
-    gender: '',
-    avatar: '',
+    gender: user.gender,
+    avatar: user.avatar,
   });
-  const [avatarUsername, setAvatarUsername] = useState('');
-  const [avatarEmail, setAvatarEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [avatarUsername, setAvatarUsername] = useState(user.username);
+  const [avatarEmail, setAvatarEmail] = useState(user.email);
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
   const onRedirect = (): void => navigate('/account');
   const onSubmit = (): void => {
-    if (avatarUsername) {
-      // authController.methods.onUpdate({ 
-      //  });
+    if (avatarUsername?.trim()) {
+      methods.onUpdate({
+        username: avatarUsername,
+        gender: avatarData.gender,
+        avatar: avatarData.avatar,
+        email: avatarEmail,
+        firstName: firstName,
+        lastName: lastName,
+      });
+    } else {
+      alert('Username can not be empty');
     }
   };
 
@@ -66,7 +81,7 @@ export default function Update(): JSX.Element {
         />
       </div>
 
-      <AvatarChooser onChange={setAvatarData} />
+      <AvatarChooser onChange={setAvatarData} defaultGender={user.gender} defaultAvatar={user.avatar} />
 
       <div className="footer-group">
         <Button className={avatarUsername?.trim().length > 0 ? 'active' : ''} onClick={onSubmit}>

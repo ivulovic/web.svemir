@@ -23,6 +23,11 @@ const useAuthController = () => {
     dispatch(auth.actions.register(payload));
   };
 
+  const onUpdate = (params: any) => {
+    const payload = getPayload(params);
+    dispatch(auth.actions.update(payload));
+  };
+
   const onGetInfo = () => {
     const payload = getPayload();
     dispatch(auth.actions.info(payload));
@@ -36,6 +41,7 @@ const useAuthController = () => {
       onLogin,
       onRegister,
       onGetInfo,
+      onUpdate,
     },
   };
 };

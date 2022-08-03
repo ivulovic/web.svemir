@@ -1,4 +1,4 @@
-import { request, makePostReq, makeGetReq } from '@reactoso-request';
+import { request, makePostReq, makeGetReq, makePatchReq } from '@reactoso-request';
 import { call, put, takeLatest, RepositoryResult } from '@repository';
 import { PayloadAction } from '@service';
 
@@ -14,6 +14,16 @@ export function* register(action: PayloadAction<any>): RepositoryResult {
     yield info(action);
   } catch (e) {
     yield put(actions.setLoading(false));
+  }
+}
+export function* update(action: PayloadAction<any>): RepositoryResult {
+  const { controller, params } = action.payload;
+  try {
+    const url = `${createApiUrl(controller)}/update`;
+    const response = yield call(request, url, makePatchReq(params));
+    yield put(actions.setUser(response));
+  } catch (e) {
+    //
   }
 }
 
@@ -43,6 +53,7 @@ export function* info(action: PayloadAction<any>): RepositoryResult {
 
 export default function* repository() {
   yield takeLatest(actions.register.type, register);
+  yield takeLatest(actions.update.type, update);
   yield takeLatest(actions.login.type, login);
   yield takeLatest(actions.info.type, info);
 }

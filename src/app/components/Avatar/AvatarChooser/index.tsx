@@ -5,14 +5,16 @@ import { Button } from '@reactoso-ui';
 import AvatarIcon from '../AvatarIcon';
 import './style.scss';
 
-export default function AvatarChooser({ onChange }): JSX.Element {
+export default function AvatarChooser({ onChange, defaultGender = null, defaultAvatar = null }): JSX.Element {
   const maxAvatars = 22;
   const minAvatars = 1;
 
   const getRandomNumber = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1) + min);
 
-  const [avatarNumber, setAvatarNumber] = useState(getRandomNumber(minAvatars, maxAvatars));
-  const [avatarGender, setAvatarGender] = useState(getRandomNumber(0, 1) ? 'm' : 'f');
+  const [avatarNumber, setAvatarNumber] = useState(
+    parseInt(defaultAvatar, 10) || getRandomNumber(minAvatars, maxAvatars),
+  );
+  const [avatarGender, setAvatarGender] = useState(defaultGender || getRandomNumber(0, 1) ? 'm' : 'f');
 
   const onAvatarChange = (direction: number): void => {
     if (direction > 0) {
