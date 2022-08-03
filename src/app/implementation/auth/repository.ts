@@ -1,0 +1,48 @@
+import { request, makePostReq, makeGetReq } from '@reactoso-request';
+import { call, put, takeLatest, RepositoryResult } from '@repository';
+import { PayloadAction } from '@service';
+
+import { actions } from './service';
+import { createApiUrl } from './settings';
+import { IAuthenticatedUser } from './types';
+
+export function* register(action: PayloadAction<any>): RepositoryResult {
+  const { controller, params } = action.payload;
+  try {
+    const url = `${createApiUrl(controller)}/register`;
+    yield call(request, url, makePostReq(params));
+    yield info(action);
+  } catch (e) {
+    yield put(actions.setLoading(false));
+  }
+}
+
+export function* login(action: PayloadAction<any>): RepositoryResult {
+  const { controller, params } = action.payload;
+  try {
+    const url = `${createApiUrl(controller)}/login`;
+    yield call(request, url, makePostReq(params));
+    yield info(action);
+  } catch (e) {
+    yield put(actions.setLoading(false));
+  }
+}
+
+export function* info(action: PayloadAction<any>): RepositoryResult {
+  const { controller } = action.payload;
+  try {
+    const url = `${createApiUrl(controller)}/info`;
+    const user = (yield call(request, url, makeGetReq())) as IAuthenticatedUser;
+    yield put(actions.setUser(user));
+  } catch (e) {
+    yield put(actions.setLoading(false));
+  } finally {
+    yield put(actions.checkingInfoDone());
+  }
+}
+
+export default function* repository() {
+  yield takeLatest(actions.register.type, register);
+  yield takeLatest(actions.login.type, login);
+  yield takeLatest(actions.info.type, info);
+}

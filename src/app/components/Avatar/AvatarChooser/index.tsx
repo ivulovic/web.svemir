@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@reactoso-ui';
 
 import AvatarIcon from '../AvatarIcon';
 import './style.scss';
 
-export default function AvatarChooser(): JSX.Element {
+export default function AvatarChooser({ onChange }): JSX.Element {
   const maxAvatars = 22;
   const minAvatars = 1;
 
@@ -32,6 +32,13 @@ export default function AvatarChooser(): JSX.Element {
       setAvatarNumber(1);
     }
   };
+
+  useEffect(() => {
+    onChange({
+      gender: avatarGender,
+      avatar: avatarNumber.toString(),
+    });
+  }, [avatarNumber, avatarGender]);
 
   return (
     <div className="avatar-chooser">

@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import AuthProvider from '@providers/Auth';
 import { configureAppStore, ReduxProvider } from '@service';
 import { IntlProvider, defaultLocale, translationMessages } from '@translations';
 
@@ -17,7 +18,9 @@ root.render(
     <IntlProvider locale={defaultLocale} defaultLocale={defaultLocale} messages={translationMessages}>
       <BrowserRouter>
         <StrictMode>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </StrictMode>
       </BrowserRouter>
     </IntlProvider>

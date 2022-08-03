@@ -5,13 +5,9 @@ const localCommonConfiguration = require('./webpack.common');
 module.exports = merge(baseDevelopmentConfiguration, localCommonConfiguration, {
   devServer: {
     proxy: {
-      '/catapi': {
-        target: 'https://api.thecatapi.com',
+      '/api': {
+        target: 'http://localhost:5001',
         changeOrigin: true,
-        // remove /catapi from url
-        pathRewrite: {
-          '^/catapi': '',
-        },
       },
     },
   },

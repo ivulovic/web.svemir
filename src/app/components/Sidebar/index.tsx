@@ -8,7 +8,8 @@ export default function Sidebar(): JSX.Element {
       {/* collapse */}
       <span className="logo">S</span>
       <Link className="logo-expand" to="/">
-        s<span className="flip">m</span>emir
+        {/* <span className="flip">m</span */}
+        svemir
       </Link>
       <div className="side-wrapper">
         <div className="side-title">MENU</div>

@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Header from '@components/Header';
 import Sidebar from '@components/Sidebar';
+import { useAuthControllerScope } from '@controllers/auth';
+import { AppStatusEnum } from '@implementation/auth/types';
 import AboutPage from '@pages/About';
 import AccountPage from '@pages/Account';
 import AccountLogin from '@pages/Account/views/Login';
@@ -16,11 +18,18 @@ import GameOverview from '@pages/Games/views/Overview';
 // import HomePage from '@pages/Home';
 import StreamPage from '@pages/Stream';
 import './style.scss';
-
-const Loading = (): JSX.Element => <span>Loading...</span>;
+import { Loading } from '@reactoso-ui';
+import { useSelector } from '@service';
 
 const App = (): JSX.Element => {
-  const isLoggedIn = true;
+  const authController = useAuthControllerScope();
+  // const user = useSelector(authController.implementation.auth.selectors.selectAuthUser);
+  // const isLoading = useSelector(authController.implementation.auth.selectors.selectAuthLoading);
+  const isLoggedIn = useSelector(authController.implementation.auth.selectors.selectIsLoggedIn);
+  const appStatus = useSelector(authController.implementation.auth.selectors.selectAppStatus);
+  if (appStatus === AppStatusEnum.NotReady) {
+    return <Loading />;
+  }
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -35,8 +44,8 @@ const App = (): JSX.Element => {
                 <Route path="/discover" element={<DiscoverPage />} />
                 <Route path="/account" element={<AccountPage />}>
                   <Route path="" element={isLoggedIn ? <AccountProfile /> : <AccountLogin />} />
-                  <Route path="register" element={<AccountRegister />} />
-                  <Route path="update" element={<AccountUpdate />} />
+                  <Route path="register" element={isLoggedIn ? <Navigate to="/account" /> : <AccountRegister />} />
+                  <Route path="update" element={!isLoggedIn ? <Navigate to="/account" /> : <AccountUpdate />} />
                 </Route>
                 <Route path="/games" element={<GamesPage />}>
                   <Route path="" element={<GameOverview />} />

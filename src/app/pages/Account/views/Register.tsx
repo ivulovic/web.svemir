@@ -4,12 +4,26 @@ import { useNavigate } from 'react-router-dom';
 import AvatarChooser from '@components/Avatar/AvatarChooser';
 import PageSection from '@components/PageSection';
 import View from '@components/View';
+import { useAuthControllerScope } from '@controllers/auth';
 import { Button, Input } from '@reactoso-ui';
 
 export default function Register(): JSX.Element {
   const navigate = useNavigate();
   const [avatarUsername, setAvatarUsername] = useState('');
-  const onSubmit = (): void => {};
+  const [avatarData, setAvatarData] = useState({
+    gender: '',
+    avatar: '',
+  });
+  const authController = useAuthControllerScope();
+  const onSubmit = (): void => {
+    console.log(avatarData);
+    if ((avatarUsername?.trim() && avatarData.avatar, avatarData.gender)) {
+      authController.methods.onRegister({
+        ...avatarData,
+        username: avatarUsername.trim(),
+      });
+    }
+  };
   const onRedirect = (): void => navigate('/account');
   return (
     <View>
@@ -20,7 +34,7 @@ export default function Register(): JSX.Element {
         <Input onChange={(e: any): void => setAvatarUsername(e.target.value)} placeholder="Enter username" />
       </div>
 
-      <AvatarChooser />
+      <AvatarChooser onChange={setAvatarData} />
 
       <div className="footer-group">
         <Button className={avatarUsername?.trim().length > 0 ? 'active' : ''} onClick={onSubmit}>

@@ -1,7 +1,6 @@
-import { CATCONTROLLER_SCOPE } from '@implementation/cat/settings';
-import { ICatState } from '@implementation/cat/types';
+import { AUTH_SCOPE } from '@implementation/auth/settings';
+import { IAuthState } from '@implementation/auth/types';
 
 export interface IRootState {
-  // controllers
-  [CATCONTROLLER_SCOPE]: ICatState;
+  [AUTH_SCOPE]: IAuthState;
 }
