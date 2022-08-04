@@ -7,7 +7,7 @@ import './style.scss';
 export default function Page(): JSX.Element {
   return (
     <div className="games-page-container">
-      <PageHeader>Games</PageHeader>
+      <PageHeader>Discover</PageHeader>
       <Outlet />
     </div>
   );
