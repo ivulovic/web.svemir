@@ -1,6 +1,7 @@
 import DesktopContext from '../context';
 import { UserStatusEnum } from '../types';
 import LogInUtility from '../utils/login';
+
 import PinDigit from './PinDigit';
 
 const Pin: React.FC = () => {
@@ -75,9 +76,9 @@ const Pin: React.FC = () => {
       <input
         disabled={userStatus !== UserStatusEnum.LoggingIn && userStatus !== UserStatusEnum.LogInError}
         id="desktop-pin-hidden-input"
-        maxLength={4}
         ref={ref}
-        type="number"
+        // maxLength={4}
+        // type="number"
         value={pin}
         onChange={handleOnChange}
       />

@@ -10,7 +10,7 @@ const PinDigit: React.FC<IPinDigitProps> = (props: IPinDigitProps) => {
     if (props.value) {
       const timeout = setTimeout(() => {
         setHiddenTo(true);
-      }, 500);
+      }, 100);
 
       return () => {
         setHiddenTo(false);
