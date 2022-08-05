@@ -1,3 +1,6 @@
+import { useAuthControllerScope } from '@controllers/auth';
+import { useSelector } from '@service';
+
 import Background from './components/Background';
 import DesktopLoading from './components/DesktopLoading';
 import Info from './components/Info';
@@ -10,7 +13,12 @@ import { UserStatusEnum } from './types';
 import './style.scss';
 
 const Desktop: React.FC = () => {
-  const [userStatus, setUserStatusTo] = React.useState<UserStatusEnum>(UserStatusEnum.LoggedOut);
+  const authController = useAuthControllerScope();
+  const isLoggedIn = useSelector(authController.implementation.auth.selectors.selectIsLoggedIn);
+
+  const [userStatus, setUserStatusTo] = React.useState<UserStatusEnum>(
+    isLoggedIn ? UserStatusEnum.LoggedIn : UserStatusEnum.LoggedOut,
+  );
 
   const getStatusClass = (): string => {
     return userStatus.replace(/\s+/g, '-').toLowerCase();

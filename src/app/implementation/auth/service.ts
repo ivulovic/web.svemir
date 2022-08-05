@@ -9,6 +9,7 @@ export const initialState: IAuthState = {
   appStatus: AppStatusEnum.NotReady,
   isLoggedIn: false,
   user: null,
+  error: null,
 };
 
 const _service = createService({
@@ -16,6 +17,7 @@ const _service = createService({
   initialState,
   actions: {
     login(state, action: PayloadAction<any>) {
+      state.error = null;
       state.loading = true;
     },
     register(state, action: PayloadAction<any>) {
@@ -34,7 +36,11 @@ const _service = createService({
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },
+    setError(state, action: PayloadAction<any>) {
+      state.error = action.payload;
+    },
     setUser(state, action: PayloadAction<IAuthenticatedUser>) {
+      state.error = null;
       state.loading = false;
       state.isLoggedIn = true;
       state.user = action.payload;

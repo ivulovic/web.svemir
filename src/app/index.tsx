@@ -11,6 +11,7 @@ import AccountLogin from '@pages/Account/views/Login';
 import AccountProfile from '@pages/Account/views/Profile';
 import AccountRegister from '@pages/Account/views/Register';
 import AccountUpdate from '@pages/Account/views/Update';
+import Desktop from '@pages/Desktop';
 import GamesPage from '@pages/Games';
 import GameDetails from '@pages/Games/views/Details';
 import GameOverview from '@pages/Games/views/Overview';
@@ -20,7 +21,6 @@ import './style.scss';
 import { Loading } from '@reactoso-ui';
 import { useSelector } from '@service';
 // import Demo from './demo';
-import Desktop from '@components/Desktop';
 
 const App = (): JSX.Element => {
   const authController = useAuthControllerScope();

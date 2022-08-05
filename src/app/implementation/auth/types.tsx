@@ -13,6 +13,7 @@ export interface IAuthState {
   isLoggedIn: boolean;
   user: IAuthenticatedUser;
   appStatus: AppStatusEnum;
+  error: null | any;
 }
 
 export const enum AppStatusEnum {

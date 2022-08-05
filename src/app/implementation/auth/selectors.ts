@@ -13,3 +13,5 @@ export const selectAuthLoading = createSelector(getCatState, (state: IAuthState)
 export const selectIsLoggedIn = createSelector(getCatState, (state: IAuthState) => state.isLoggedIn);
 
 export const selectAppStatus = createSelector(getCatState, (state: IAuthState) => state.appStatus);
+
+export const selectAuthError = createSelector(getCatState, (state: IAuthState) => state.error);

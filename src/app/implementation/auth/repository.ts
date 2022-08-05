@@ -35,6 +35,7 @@ export function* login(action: PayloadAction<any>): RepositoryResult {
     yield info(action);
   } catch (e) {
     yield put(actions.setLoading(false));
+    yield put(actions.setError(e));
   }
 }
 

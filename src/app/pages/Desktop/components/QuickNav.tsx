@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import ScrollableComponent from './ScrollableComponent';
 
 const QuickNav: React.FC = () => {
@@ -5,24 +7,25 @@ const QuickNav: React.FC = () => {
     return [
       {
         id: 1,
-        label: 'Weather',
+        label: 'Discover',
+        path: '/',
       },
       {
         id: 2,
-        label: 'Food',
+        label: 'Apps',
+        path: '/apps',
       },
       {
         id: 3,
-        label: 'Apps',
-      },
-      {
-        id: 4,
-        label: 'Movies',
+        label: 'Games',
+        path: '/games',
       },
     ].map((item: any) => {
       return (
         <div key={item.id} className="quick-nav-item clear-button">
-          <span className="quick-nav-item-label">{item.label}</span>
+          <Link to={item.path} className="quick-nav-item-label">
+            {item.label}
+          </Link>
         </div>
       );
     });
