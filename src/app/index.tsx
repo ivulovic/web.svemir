@@ -19,6 +19,8 @@ import StreamPage from '@pages/Stream';
 import './style.scss';
 import { Loading } from '@reactoso-ui';
 import { useSelector } from '@service';
+// import Demo from './demo';
+import Desktop from '@components/Desktop';
 
 const App = (): JSX.Element => {
   const authController = useAuthControllerScope();
@@ -32,7 +34,8 @@ const App = (): JSX.Element => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <div className="app-wrapper">
+        <Desktop />
+        {/* <div className="app-wrapper">
           <Sidebar />
           <div className="layout-wrapper">
             <Header />
@@ -45,10 +48,6 @@ const App = (): JSX.Element => {
                   <Route path="register" element={isLoggedIn ? <Navigate to="/account" /> : <AccountRegister />} />
                   <Route path="update" element={!isLoggedIn ? <Navigate to="/account" /> : <AccountUpdate />} />
                 </Route>
-                {/* <Route path="/discover" element={<GamesPage />}>
-                  <Route path="" element={<GameOverview />} />
-                  <Route path=":id" element={<GameDetails />} />
-                </Route> */}
                 <Route path="/" element={<GamesPage />}>
                   <Route path="" element={<GameOverview />} />
                   <Route path=":id" element={<GameDetails />} />
@@ -56,7 +55,7 @@ const App = (): JSX.Element => {
               </Routes>
             </div>
           </div>
-        </div>
+        </div> */}
       </Suspense>
     </>
   );
