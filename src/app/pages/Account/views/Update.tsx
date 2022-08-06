@@ -5,6 +5,7 @@ import AvatarChooser from '@components/Avatar/AvatarChooser';
 import PageSection from '@components/PageSection';
 import View from '@components/View';
 import { useAuthControllerScope } from '@controllers/auth';
+import { IAuthenticatedUser } from '@implementation/auth/types';
 import { Button, Input } from '@reactoso-ui';
 import { useSelector } from '@service';
 
@@ -16,7 +17,7 @@ export default function Update(): JSX.Element {
     },
     methods,
   } = useAuthControllerScope();
-  const user = useSelector(selectors.selectAuthUser);
+  const user: IAuthenticatedUser = useSelector(selectors.selectAuthUser);
   const [avatarData, setAvatarData] = useState({
     gender: user.gender,
     avatar: user.avatar,
@@ -43,7 +44,7 @@ export default function Update(): JSX.Element {
 
   return (
     <View>
-      <PageSection>Update Your account</PageSection>
+      <PageSection>Update account</PageSection>
 
       <div className="form-group">
         <p>Username:</p>

@@ -1,4 +1,5 @@
 export enum UserStatusEnum {
+  Registering = 'Registering',
   LoggedIn = 'Logged In',
   LoggingIn = 'Logging In',
   LoggedOut = 'Logged Out',

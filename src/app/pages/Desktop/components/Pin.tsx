@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import useAuthController from '@controllers/auth';
 import { useSelector } from '@service';
 
@@ -15,6 +17,7 @@ const Pin: React.FC = () => {
   const { userStatus, setUserStatusTo } = React.useContext(DesktopContext);
 
   const [pin, setPinTo] = React.useState<string>('');
+  const navigate = useNavigate();
 
   const ref: React.MutableRefObject<HTMLInputElement> = React.useRef<HTMLInputElement>(null);
 
@@ -55,6 +58,7 @@ const Pin: React.FC = () => {
   };
 
   const handleOnCancel = (): void => {
+    navigate('/');
     setUserStatusTo(UserStatusEnum.LoggedOut);
   };
 

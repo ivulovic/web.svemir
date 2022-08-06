@@ -5,10 +5,13 @@ import AvatarChooser from '@components/Avatar/AvatarChooser';
 import PageSection from '@components/PageSection';
 import View from '@components/View';
 import { useAuthControllerScope } from '@controllers/auth';
+import DesktopContext from '@pages/Desktop/context';
+import { UserStatusEnum } from '@pages/Desktop/types';
 import { Button, Input } from '@reactoso-ui';
 
 export default function Register(): JSX.Element {
   const navigate = useNavigate();
+  const { setUserStatusTo } = React.useContext(DesktopContext);
   const [avatarUsername, setAvatarUsername] = useState('');
   const [avatarData, setAvatarData] = useState({
     gender: '',
@@ -16,7 +19,6 @@ export default function Register(): JSX.Element {
   });
   const authController = useAuthControllerScope();
   const onSubmit = (): void => {
-    console.log(avatarData);
     if ((avatarUsername?.trim() && avatarData.avatar, avatarData.gender)) {
       authController.methods.onRegister({
         ...avatarData,
@@ -24,7 +26,10 @@ export default function Register(): JSX.Element {
       });
     }
   };
-  const onRedirect = (): void => navigate('/account');
+  const onRedirect = (): void => {
+    navigate('/');
+    setUserStatusTo(UserStatusEnum.LoggingIn);
+  };
   return (
     <View>
       <PageSection>Create an account</PageSection>

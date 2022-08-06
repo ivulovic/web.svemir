@@ -20,6 +20,11 @@ const _service = createService({
       state.error = null;
       state.loading = true;
     },
+    logout(state, action: PayloadAction<any>) {
+      state.error = null;
+      state.isLoggedIn = false;
+      state.user = null;
+    },
     register(state, action: PayloadAction<any>) {
       // state.loading = true;
     },

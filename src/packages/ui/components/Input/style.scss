@@ -1,11 +1,13 @@
 .reactoso.input {
-    height: 34px;
+    height: 42px;
     display: flex;
     width: 100%;
     max-width: 100%;
     input {
      width: 100%;
-     background-color: var(--button-bg);
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-bg);
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
      height: 100%;
      border: none;
      border-radius: 8px;

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 
-import ScrollableComponent from './ScrollableComponent';
+import { Scrollable } from '@reactoso-ui';
 
 const QuickNav: React.FC = () => {
   const getItems = (): JSX.Element[] => {
@@ -31,7 +31,7 @@ const QuickNav: React.FC = () => {
     });
   };
 
-  return <ScrollableComponent id="quick-nav">{getItems()}</ScrollableComponent>;
+  return <Scrollable id="quick-nav">{getItems()}</Scrollable>;
 };
 
 export default QuickNav;

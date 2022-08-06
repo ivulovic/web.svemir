@@ -14,6 +14,7 @@ export function* register(action: PayloadAction<any>): RepositoryResult {
     yield info(action);
   } catch (e) {
     yield put(actions.setLoading(false));
+    yield put(actions.setError(e));
   }
 }
 export function* update(action: PayloadAction<any>): RepositoryResult {
@@ -24,6 +25,7 @@ export function* update(action: PayloadAction<any>): RepositoryResult {
     yield put(actions.setUser(response));
   } catch (e) {
     //
+    yield put(actions.setError(e));
   }
 }
 
@@ -33,6 +35,17 @@ export function* login(action: PayloadAction<any>): RepositoryResult {
     const url = `${createApiUrl(controller)}/login`;
     yield call(request, url, makePostReq(params));
     yield info(action);
+  } catch (e) {
+    yield put(actions.setLoading(false));
+    yield put(actions.setError(e));
+  }
+}
+
+export function* logout(action: PayloadAction<any>): RepositoryResult {
+  const { controller } = action.payload;
+  try {
+    const url = `${createApiUrl(controller)}/logout`;
+    yield call(request, url, makePostReq());
   } catch (e) {
     yield put(actions.setLoading(false));
     yield put(actions.setError(e));
@@ -56,5 +69,6 @@ export default function* repository() {
   yield takeLatest(actions.register.type, register);
   yield takeLatest(actions.update.type, update);
   yield takeLatest(actions.login.type, login);
+  yield takeLatest(actions.logout.type, logout);
   yield takeLatest(actions.info.type, info);
 }

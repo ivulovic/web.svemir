@@ -22,11 +22,10 @@ export default function Profile(): JSX.Element {
   return (
     <View>
       <PageSection>Your account</PageSection>
-      {/* <div className="profile-layout"> */}
       <View>
         <div className="profile-avatar">
           <AvatarIcon gender={user.gender} avatar={user.avatar} />
-          <AvatarUsername value={user.username} isVerified={true} />
+          <AvatarUsername value={user.username} />
           {user.email ? <Paragraph>{user.email}</Paragraph> : <></>}
           <AvatarCredits value={user.coins} />
         </div>
@@ -34,7 +33,6 @@ export default function Profile(): JSX.Element {
           Update your account
         </Button>
       </View>
-      {/* </div> */}
     </View>
   );
 }

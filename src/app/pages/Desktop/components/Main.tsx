@@ -1,46 +1,37 @@
-import LogoutIcon from '../icons/LogoutIcon';
-import { UserStatusEnum } from '../types';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import Info from './Info';
+import { useAuthControllerScope } from '@controllers/auth';
+import AccountPage from '@pages/Account';
+import AccountLogin from '@pages/Account/views/Login';
+import AccountProfile from '@pages/Account/views/Profile';
+import AccountUpdate from '@pages/Account/views/Update';
+import AppsPage from '@pages/Apps';
+import AppsOverview from '@pages/Apps/views/Overview';
+import { useSelector } from '@service';
+
+import MainHeader from './MainHeader';
 import QuickNav from './QuickNav';
-import UserStatusButton from './UserStatusButton';
 
 const Main: React.FC = () => {
+  const authController = useAuthControllerScope();
+  const isLoggedIn = useSelector(authController.implementation.auth.selectors.selectIsLoggedIn);
+
   return (
     <div id="desktop-main">
       <div id="desktop-main-content-wrapper">
         <div id="desktop-main-content">
-          <div id="desktop-main-content-header">
-            <div className="desktop-main-content-header-section">
-              <Info id="desktop-main-info" />
-            </div>
-            <div className="desktop-main-content-header-section">
-              <UserStatusButton icon={LogoutIcon} id="sign-out-button" userStatus={UserStatusEnum.LoggedOut} />
-            </div>
-          </div>
+          <MainHeader />
           <QuickNav />
-          {/* <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav />
-          <QuickNav /> */}
+          <Routes>
+            <Route path="/account" element={<AccountPage />}>
+              <Route path="" element={isLoggedIn ? <AccountProfile /> : <AccountLogin />} />
+              <Route path="update" element={!isLoggedIn ? <Navigate to="/account" /> : <AccountUpdate />} />
+              <Route path="*" element={<Navigate to="/account" />} />
+            </Route>
+            <Route path="/apps" element={<AppsPage />}>
+              <Route path="" element={<AppsOverview />} />
+            </Route>
+          </Routes>
         </div>
       </div>
     </div>

@@ -18,6 +18,11 @@ const useAuthController = () => {
     dispatch(auth.actions.login(payload));
   };
 
+  const onLogout = (params: any) => {
+    const payload = getPayload(params);
+    dispatch(auth.actions.logout(payload));
+  };
+
   const onRegister = (params: any) => {
     const payload = getPayload(params);
     dispatch(auth.actions.register(payload));
@@ -39,6 +44,7 @@ const useAuthController = () => {
     },
     methods: {
       onLogin,
+      onLogout,
       onRegister,
       onGetInfo,
       onUpdate,

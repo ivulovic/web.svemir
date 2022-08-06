@@ -92,6 +92,7 @@
   }
 
   &.logging-in,
+  &.registering,
   &.verifying-log-in,
   &.log-in-error {
     #desktop-background {
@@ -117,6 +118,22 @@
       opacity: 1;
       pointer-events: all;
       transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &.registering {
+    #desktop-main{
+      pointer-events: all;
+      opacity: 1;
+      #desktop-main-content-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #desktop-main-content{
+          height: 100%;
+          width: 100%;
+        }
+      }
     }
   }
 
@@ -382,15 +399,9 @@
 
   .user-status-button {
     cursor: pointer;
-    margin-top: 10px;
     outline: none;
     padding: 10px;
     width: 100px;
-
-    i {
-      color: gray(245);
-      font-size: 1.25em;
-    }
   }
 
   .clear-button {
@@ -400,10 +411,11 @@
     border-radius: 100px;
     box-shadow: 2px 2px 2px rgba(black, 0.1);
     cursor: pointer;
-
-    &:hover {
+    transition: all 250ms;
+    &:hover,
+    a.active {
+      border-radius: 100px;
       background-color: rgba(white, 0.2);
-      border: 1px solid rgba(white, 0.3);
     }
   }
 
@@ -435,7 +447,7 @@
     opacity: 0;
     pointer-events: none;
     position: relative;
-    transform: translateY(-10%);
+    // transform: translateY(-10%);
     transition: opacity 250ms, transform 250ms;
     z-index: 2;
 
@@ -452,6 +464,25 @@
         #desktop-main-content-header {
           display: flex;
           justify-content: space-between;
+          .desktop-main-content-header-section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .avatar{
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              .avatar-icon {
+                width: 70px;
+                height: 70px;
+                flex-shrink: 0;
+                object-fit: cover;
+                border-radius: 50%;
+                position: relative;
+                top: 2px;
+              }
+            }
+          }
         }
       }
     }
@@ -488,23 +519,6 @@
     }
   }
 
-  /* Scrollable */
-
-  .scrollable-component {
-    cursor: grab;
-    overflow: auto;
-    user-select: none;
-    width: 100%;
-
-    &:active {
-      cursor: grabbing;
-    }
-
-    &::-webkit-scrollbar {
-      height: 0px;
-      width: 0px;
-    }
-  }
 }
 
 

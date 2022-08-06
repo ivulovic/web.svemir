@@ -19,7 +19,7 @@ const defaultPosition = (): IPosition => ({
   x: 0,
 });
 
-const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScrollableComponentProps) => {
+const Scrollable: React.FC<IScrollableComponentProps> = (props: IScrollableComponentProps) => {
   const ref: React.MutableRefObject<HTMLDivElement> = React.useRef<HTMLDivElement>(null);
 
   const [state, setStateTo] = React.useState<IScrollableComponentState>({
@@ -53,9 +53,10 @@ const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScroll
   };
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       ref={ref}
-      className={`scrollable-component ${props.className || ''}`}
+      className={`reactoso scrollable ${props.className || ''}`}
       id={props.id}
       onMouseDown={handleOnMouseDown}
       onMouseMove={handleOnMouseMove}
@@ -67,4 +68,4 @@ const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScroll
   );
 };
 
-export default ScrollableComponent;
+export default Scrollable;

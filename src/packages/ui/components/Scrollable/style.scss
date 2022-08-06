@@ -1,0 +1,15 @@
+.reactoso.scrollable {
+  cursor: grab;
+  overflow: auto;
+  user-select: none;
+  width: 100%;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+  }
+}
