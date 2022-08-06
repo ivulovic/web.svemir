@@ -13,3 +13,4 @@ export { default as DesktopCard } from './components/DesktopCard';
 export { default as Scrollable } from './components/Scrollable';
 
 export { default as GiftIcon } from './icons/GiftIcon';
+export { default as TrashIcon } from './icons/TrashIcon';

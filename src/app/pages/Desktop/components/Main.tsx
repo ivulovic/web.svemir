@@ -6,6 +6,7 @@ import AccountLogin from '@pages/Account/views/Login';
 import AccountProfile from '@pages/Account/views/Profile';
 import AccountUpdate from '@pages/Account/views/Update';
 import AppsPage from '@pages/Apps';
+import AppEntry from '@pages/Apps/views/Entry';
 import AppsOverview from '@pages/Apps/views/Overview';
 import { useSelector } from '@service';
 
@@ -30,6 +31,7 @@ const Main: React.FC = () => {
             </Route>
             <Route path="/apps" element={<AppsPage />}>
               <Route path="" element={<AppsOverview />} />
+              <Route path=":id" element={<AppEntry />} />
             </Route>
           </Routes>
         </div>

@@ -5,7 +5,7 @@ import './style.scss';
 
 export default function DesktopCard(): JSX.Element {
   return (
-    <Link to="/" className="desktop-card">
+    <Link to="/apps/wishlist" className="desktop-card">
       <div className="desktop-card-content">
         <GiftIcon className="desktop-card-icon" />
         <span className="desktop-card-text">Wishlist</span>
