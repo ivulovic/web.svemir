@@ -1,44 +1,44 @@
-.desktop-card{
-    backdrop-filter: blur(3px);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px rgb(0 0 0 / 25%);
-    height: 8vw;
-    max-height: 160px;
-    min-height: 140px;
-    min-width: 180px;
-    position: relative;
-    transition: all 250ms;
-    width: calc(100% / 7);
-    text-decoration: none;
-    color: whitesmoke;
-    cursor: pointer;
+.desktop-card {
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgb(0 0 0 / 25%);
+  height: 8vw;
+  max-height: 200px;
+  min-height: 200px;
+  min-width: 200px;
+  position: relative;
+  transition: all 250ms;
+  width: calc(100% / 7);
+  text-decoration: none;
+  color: whitesmoke;
+  cursor: pointer;
 
-    &:hover {
-        background-color: rgba(white, 0.2);
-        border: 1px solid rgba(white, 0.3);
-      }
+  &:hover {
+    background-color: rgba(white, 0.2);
+    border: 1px solid rgba(white, 0.3);
+  }
 
-    .desktop-card-content{
-        display: flex;
-        padding: 10px;
-        flex-direction: column;
-        height: calc(100% - 20px);
-        justify-content: space-evenly;
-        height: 100%;
-        .desktop-card-icon{
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
-            text-align: center;
-            padding: 1rem;
-            width: 100%;
-        }
-        .desktop-card-text{
-            font-size: 0.9em;
-            text-transform: uppercase;
-            color: whitesmoke;
-            text-align: center;
-        }
+  .desktop-card-content {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    height: calc(100% - 20px);
+    justify-content: space-evenly;
+    height: 100%;
+    .desktop-card-icon {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
     }
+    .desktop-card-text {
+      font-size: 0.9em;
+      text-transform: uppercase;
+      color: whitesmoke;
+      text-align: center;
+    }
+  }
 }

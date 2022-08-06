@@ -25,6 +25,16 @@ export function* loadAll(action: PayloadAction<any>): RepositoryResult {
     yield put(actions.setLoading(false));
   }
 }
+export function* loadOne(action: PayloadAction<any>): RepositoryResult {
+  const { controller, params } = action.payload;
+  try {
+    const url = `${createApiUrl(controller)}/${params.id}`;
+    const data = (yield call(request, url, makeGetReq())) as any;
+    yield put(actions.setData({ controller, data }));
+  } catch (e) {
+    yield put(actions.setLoading(false));
+  }
+}
 export function* remove(action: PayloadAction<any>): RepositoryResult {
   const { controller, params } = action.payload;
   try {
@@ -39,5 +49,6 @@ export function* remove(action: PayloadAction<any>): RepositoryResult {
 export default function* repository() {
   yield takeLatest(actions.create.type, create);
   yield takeLatest(actions.loadAll.type, loadAll);
+  yield takeLatest(actions.loadById.type, loadOne);
   yield takeLatest(actions.remove.type, remove);
 }

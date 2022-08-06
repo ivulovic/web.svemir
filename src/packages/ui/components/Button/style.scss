@@ -21,6 +21,9 @@
     color: var(--body-color);
     transition: all 0.3s ease;
     cursor: pointer;
+    &:hover {
+      background-color: rgba(white, 0.2);
+    }
     &.link {
       background-color: transparent;
       color: var(--body-color);

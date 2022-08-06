@@ -22,10 +22,10 @@ const useAppController = (scope) => {
     const payload = getPayload(params);
     dispatch(app.actions.loadAll(payload));
   };
-  // const onLoadOne = (params: any) => {
-  //   const payload = getPayload(params);
-  //   dispatch(app.actions.loadOne(payload));
-  // };
+  const onLoadById = (params: any) => {
+    const payload = getPayload(params);
+    dispatch(app.actions.loadById(payload));
+  };
   const onRemove = (params: any) => {
     const payload = getPayload(params);
     dispatch(app.actions.remove(payload));
@@ -39,7 +39,7 @@ const useAppController = (scope) => {
     methods: {
       onCreate,
       onLoadAll,
-      // onLoadOne,
+      onLoadById,
       onRemove,
     },
   };

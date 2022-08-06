@@ -13,6 +13,7 @@ const config = {
       '@repository': path.resolve('src/core/repository'),
       '@translations': path.resolve('src/core/translations'),
 
+      '@utils': path.resolve('src/app/utils'),
       '@pages': path.resolve('src/app/pages'),
       '@providers': path.resolve('src/app/providers'),
       '@components': path.resolve('src/app/components'),

@@ -9,6 +9,15 @@
         grid-row-gap: 20px;
         color: var(--body-color);
     }
+    .form{
+        form{
+            display: flex;
+            gap: 1rem;
+            .button{
+                flex: 1;
+            }
+        }
+    }
 
     @media (max-width: 840px) {
         .wishlist-items{

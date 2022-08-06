@@ -8,6 +8,7 @@ import AccountUpdate from '@pages/Account/views/Update';
 import AppsPage from '@pages/Apps';
 import AppEntry from '@pages/Apps/views/Entry';
 import AppsOverview from '@pages/Apps/views/Overview';
+import AppShare from '@pages/Apps/views/Share';
 import { useSelector } from '@service';
 
 import MainHeader from './MainHeader';
@@ -32,6 +33,11 @@ const Main: React.FC = () => {
             <Route path="/apps" element={<AppsPage />}>
               <Route path="" element={<AppsOverview />} />
               <Route path=":id" element={<AppEntry />} />
+            </Route>
+            <Route path="/share" element={<AppsPage />}>
+              <Route path="" element={<Navigate to="/" />} />
+              <Route path=":id" element={<Navigate to="/" />} />
+              <Route path=":id/:username" element={<AppShare />} />
             </Route>
           </Routes>
         </div>

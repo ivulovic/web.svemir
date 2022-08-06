@@ -12,6 +12,7 @@
       "@repository": ["core/repository"],
       "@translations": ["core/translations"],
 
+      "@utils/*": ["app/utils/*"],
       "@pages/*": ["app/pages/*"],
       "@providers/*": ["app/providers/*"],
       "@components/*": ["app/components/*"],
