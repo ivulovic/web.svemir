@@ -9,8 +9,6 @@
       z-index: 2;
   
       .desktop-main-content-wrapper {
-        padding: 2rem 2rem;
-  
         .desktop-main-content {
           margin: auto;
           max-width: 1600px;
@@ -39,13 +37,6 @@
               }
             }
           }
-        }
-      }
-    }
-    @media (max-width: 640px) {
-      .desktop-main {
-        .desktop-main-content-wrapper{
-          padding: 1rem;
         }
       }
     }

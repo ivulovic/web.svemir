@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import useAuthController from '@controllers/auth';
+import { useAuthControllerScope } from '@controllers/auth';
 import { useSelector } from '@service';
 
 import DesktopContext from '../../context';
@@ -10,7 +10,7 @@ import PinDigit from './PinDigit';
 import './style.scss';
 
 const Pin: React.FC = () => {
-  const authController = useAuthController();
+  const authController = useAuthControllerScope();
   const error = useSelector(authController.implementation.auth.selectors.selectAuthError);
   const isLoggedIn = useSelector(authController.implementation.auth.selectors.selectIsLoggedIn);
 
@@ -41,7 +41,7 @@ const Pin: React.FC = () => {
   }, [pin]);
 
   React.useEffect(() => {
-    if (error) {
+    if (error && error.source === 'login') {
       console.error('Error occured', error);
       setUserStatusTo(UserStatusEnum.LogInError);
     }
@@ -62,6 +62,11 @@ const Pin: React.FC = () => {
     setUserStatusTo(UserStatusEnum.LoggedOut);
   };
 
+  const handleOnRegister = (): void => {
+    navigate('/');
+    setUserStatusTo(UserStatusEnum.Registering);
+  };
+
   const handleOnChange = (e: any): void => {
     if (e.target.value.length <= 10) {
       setPinTo(e.target.value.toString());
@@ -72,6 +77,14 @@ const Pin: React.FC = () => {
     return (
       <span className="desktop-pin-cancel-text" onClick={handleOnCancel}>
         Cancel
+      </span>
+    );
+  };
+
+  const getRegisterText = (): JSX.Element => {
+    return (
+      <span className="desktop-pin-cancel-text" onClick={handleOnRegister}>
+        Register
       </span>
     );
   };
@@ -104,7 +117,13 @@ const Pin: React.FC = () => {
         <PinDigit focused={pin.length === 9} value={pin[9]} />
       </div>
       <h3 className="desktop-pin-label">
-        Enter Recovery Code {getErrorText()} {getCancelText()}
+        <div>Enter Recovery Code</div>
+        {getErrorText()}
+        <div>
+          {getRegisterText()}
+          &nbsp; &nbsp;
+          {getCancelText()}
+        </div>
       </h3>
     </div>
   );

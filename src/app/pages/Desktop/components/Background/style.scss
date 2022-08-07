@@ -1,5 +1,6 @@
 .desktop-background {
-  $backgroundImage: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80';
+  // $backgroundImage: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80';
+  $backgroundImage: 'https://uploads.codesandbox.io/uploads/user/eaf54d19-547f-4aea-a0d5-86a2fc24ebe6/mc5e-space.png';
   height: 100%;
   left: 0px;
   overflow: hidden;
@@ -8,8 +9,8 @@
   width: 100%;
   z-index: 1;
   .desktop-background-image {
-    background-image: url($backgroundImage);
-    background: #101b1c;;
+    // background-image: url($backgroundImage);
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) no-repeat;
     transition: filter 250ms, transform 250ms;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,6 +36,77 @@
           backdrop-filter: blur(10px); /* apply the blur */
           pointer-events: none; /* make the overlay click-through */
         }
+    }
+  }
+  @function multiple-box-shadow ($n) {
+    $value: '#{random(2000)}px #{random(2000)}px gray';
+    @for $i from 2 through $n {
+      $value: '#{$value} , #{random(2000)}px #{random(2000)}px gray';
+    }
+  
+    @return unquote($value);
+  }
+
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  };
+  $shadows-small: multiple-box-shadow(700);
+  $shadows-medium: multiple-box-shadow(200);
+  $shadows-big: multiple-box-shadow(100);
+  .stars {
+      // width: 1px;
+    // height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: animStar 500s linear infinite;
+  
+    &:after {
+      content: " ";
+      top: 100%;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadows-small;
+    }
+  }
+  .stars2 {
+    // width: 2px;
+    // height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animStar 100s linear infinite;
+  
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: $shadows-medium;
+    }
+  }
+  .stars3 {
+    // width: 3px;
+    // height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    animation: animStar 150s linear infinite;
+  
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadows-big;
     }
   }
 }

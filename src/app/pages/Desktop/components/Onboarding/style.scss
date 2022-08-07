@@ -1,0 +1,50 @@
+.onboarding{
+    color: var(--body-color);
+    width: 100%;
+    height: 100%;
+    .children {
+        gap: 0rem;
+        width: 100%;
+        height: calc(100vh - 0rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h1{
+            font-family: 'Titan One', cursive;
+            max-width: 6ch;
+            line-height: 8rem;
+            font-weight: 600;
+            font-size: 5rem;
+            text-transform: uppercase;
+            & span:nth-child(1){
+                color: #0daabc;
+            }
+            & span:nth-child(2){
+                color: #E75252;
+            }
+            & span:nth-child(3){
+                color: #F6D686;
+            }
+        }
+        @media screen and (max-width: 840px) {
+            h1 {
+              font-size: 4rem;
+              line-height: 6rem;
+            }
+          }
+
+        @media screen and (max-width: 640px) {
+            h1 {
+              font-size: 2.5rem;
+              line-height: 5rem;
+            }
+          }
+        h2{
+            font-family: sans-serif;
+            text-transform: initial;
+            line-height: 1.5rem;
+            font-size: 1rem;
+        }
+    }
+}

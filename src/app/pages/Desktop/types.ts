@@ -5,6 +5,7 @@ export enum UserStatusEnum {
   LoggingIn = 'Logging In',
   LoggedOut = 'Logged Out',
   LogInError = 'Log In Error',
+  RegisterError = 'Register Error',
   VerifyingLogIn = 'Verifying Log In',
 }
 

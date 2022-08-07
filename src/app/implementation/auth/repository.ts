@@ -14,7 +14,7 @@ export function* register(action: PayloadAction<any>): RepositoryResult {
     yield info(action);
   } catch (e) {
     yield put(actions.setLoading(false));
-    yield put(actions.setError(e));
+    yield put(actions.setError({ source: 'register' }));
   }
 }
 export function* update(action: PayloadAction<any>): RepositoryResult {
@@ -25,7 +25,7 @@ export function* update(action: PayloadAction<any>): RepositoryResult {
     yield put(actions.setUser(response));
   } catch (e) {
     //
-    yield put(actions.setError(e));
+    yield put(actions.setError({ source: 'update' }));
   }
 }
 
@@ -37,7 +37,7 @@ export function* login(action: PayloadAction<any>): RepositoryResult {
     yield info(action);
   } catch (e) {
     yield put(actions.setLoading(false));
-    yield put(actions.setError(e));
+    yield put(actions.setError({ source: 'login' }));
   }
 }
 
@@ -48,7 +48,7 @@ export function* logout(action: PayloadAction<any>): RepositoryResult {
     yield call(request, url, makePostReq());
   } catch (e) {
     yield put(actions.setLoading(false));
-    yield put(actions.setError(e));
+    yield put(actions.setError({ source: 'logout' }));
   }
 }
 

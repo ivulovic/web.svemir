@@ -9,4 +9,12 @@
     padding-bottom: 5px;
     width: 100%;
   }
+  .desktop-main-content-wrapper{
+    padding: 2rem 2rem;
+  }
+  @media (max-width: 640px) {
+    .desktop-main-content-wrapper{
+      padding: 1rem;
+    }
+  }
 }

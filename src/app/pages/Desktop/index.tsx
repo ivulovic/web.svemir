@@ -13,19 +13,9 @@ const Desktop: React.FC = () => {
     isLoggedIn ? UserStatusEnum.LoggedIn : UserStatusEnum.LoggedOut,
   );
 
-  const getStatusClass = (): string => {
-    return userStatus.replace(/\s+/g, '-').toLowerCase();
-  };
-
-  const getVisibilityClass = (): string => {
-    return isLoggedIn ? 'private' : 'public';
-  };
-
   return (
     <DesktopContext.Provider value={{ userStatus, setUserStatusTo }}>
-      <div className={`desktop ${getStatusClass()} ${getVisibilityClass()}`}>
-        {isLoggedIn ? <PrivateDesktop /> : <PublicDesktop />}
-      </div>
+      {isLoggedIn ? <PrivateDesktop /> : <PublicDesktop />}
     </DesktopContext.Provider>
   );
 };
