@@ -1,5 +1,5 @@
-import TimeUtils from '../utils/time';
-import useCurrentDateEffect from '../utils/useCurrentDateEffect';
+import TimeUtils from '../../utils/time';
+import useCurrentDateEffect from '../../utils/useCurrentDateEffect';
 
 const Time: React.FC = () => {
   const date: Date = useCurrentDateEffect();

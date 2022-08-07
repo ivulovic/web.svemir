@@ -1,0 +1,138 @@
+.desktop-pin-wrapper {
+  $red: rgb(239, 83, 80);
+  
+  @function gray($color) {
+    @return rgb($color, $color, $color);
+  }
+
+  @keyframes blink {
+    from,
+    25%,
+    to {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -30%) scale(0.8);
+  transition: opacity 250ms, transform 250ms;
+  z-index: 2;
+
+  .desktop-pin-label {
+    color: gray(245);
+    font-size: 0.9em;
+    margin: 2rem 0;
+    gap: 1rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 2px rgba(black, 0.1);
+
+    .desktop-pin-cancel-text {
+      cursor: pointer;
+      text-align: center;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .desktop-pin-error-text {
+      color: $red;
+      text-align: center;
+    }
+  }
+
+  .desktop-pin-hidden-input {
+    pointer-events: none;
+    opacity: 0;
+    width: 100%;
+    height: 0;
+    position: absolute;
+  }
+
+  .desktop-pin {
+    display: flex;
+    gap: 10px;
+
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+
+    .desktop-pin-digit {
+      align-items: center;
+      background-color: rgba(white, 0.05);
+      border: 1px solid rgba(white, 0.2);
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px rgba(black, 0.06);
+      display: inline-flex;
+      font-size: 3em;
+      height: 80px;
+      justify-content: center;
+      position: relative;
+      transition: background-color 250ms, border-color 250ms;
+      width: 60px;
+
+      &:after,
+      &:before {
+        box-shadow: 2px 2px 2px rgba(black, 0.06);
+        content: '';
+        position: absolute;
+        transition: opacity 250ms, transform 250ms;
+        z-index: 2;
+      }
+
+      &:before {
+        background-color: gray(245);
+        border-radius: 10px;
+        bottom: 0px;
+        height: 3px;
+        left: 15%;
+        opacity: 0;
+        transform: translateY(0px);
+        width: 70%;
+      }
+
+      &:after {
+        background-color: gray(245);
+        border-radius: 20px;
+        height: 20px;
+        opacity: 0;
+        transform: scale(0.25);
+        width: 20px;
+      }
+
+      &.focused {
+        &:before {
+          animation: blink 2s ease-in-out infinite;
+          opacity: 1;
+          transform: translateY(-10px);
+        }
+      }
+
+      &.hidden {
+        &:after {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        .desktop-pin-digit-value {
+          opacity: 0;
+          transform: scale(0.25);
+        }
+      }
+
+      .desktop-pin-digit-value {
+        color: gray(245);
+        transition: opacity 250ms, transform 250ms;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import PageSection from '@components/PageSection';
 import { useWishlistControllerScope } from '@controllers/app';
 
 import List from '../components/List';
+import '../style.scss';
 
 export default function WishlistShare(): JSX.Element {
   const { id, username } = useParams();
@@ -20,7 +21,7 @@ export default function WishlistShare(): JSX.Element {
   return (
     <div className="wishlist">
       <PageHeader>Wishlist</PageHeader>
-      <PageSection>{username}'s wishlist</PageSection>
+      <PageSection>{`${username}'s`} wishlist</PageSection>
       <List source="share" />
     </div>
   );

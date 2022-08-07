@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import useAuthController from '@controllers/auth';
 import { useSelector } from '@service';
 
-import DesktopContext from '../context';
-import { UserStatusEnum } from '../types';
-// import LogInUtility from '../utils/login';
+import DesktopContext from '../../context';
+import { UserStatusEnum } from '../../types';
 
 import PinDigit from './PinDigit';
+import './style.scss';
 
 const Pin: React.FC = () => {
   const authController = useAuthController();
@@ -70,7 +70,7 @@ const Pin: React.FC = () => {
 
   const getCancelText = (): JSX.Element => {
     return (
-      <span id="desktop-pin-cancel-text" onClick={handleOnCancel}>
+      <span className="desktop-pin-cancel-text" onClick={handleOnCancel}>
         Cancel
       </span>
     );
@@ -78,22 +78,20 @@ const Pin: React.FC = () => {
 
   const getErrorText = (): JSX.Element => {
     if (userStatus === UserStatusEnum.LogInError) {
-      return <span id="desktop-pin-error-text">Invalid</span>;
+      return <span className="desktop-pin-error-text">Invalid</span>;
     }
   };
 
   return (
-    <div id="desktop-pin-wrapper">
+    <div className="desktop-pin-wrapper">
       <input
         disabled={userStatus !== UserStatusEnum.LoggingIn && userStatus !== UserStatusEnum.LogInError}
-        id="desktop-pin-hidden-input"
+        className="desktop-pin-hidden-input"
         ref={ref}
-        // maxLength={4}
-        // type="number"
         value={pin}
         onChange={handleOnChange}
       />
-      <div id="desktop-pin" onClick={handleOnClick}>
+      <div className="desktop-pin" onClick={handleOnClick}>
         <PinDigit focused={pin.length === 0} value={pin[0]} />
         <PinDigit focused={pin.length === 1} value={pin[1]} />
         <PinDigit focused={pin.length === 2} value={pin[2]} />
@@ -105,7 +103,7 @@ const Pin: React.FC = () => {
         <PinDigit focused={pin.length === 8} value={pin[8]} />
         <PinDigit focused={pin.length === 9} value={pin[9]} />
       </div>
-      <h3 id="desktop-pin-label">
+      <h3 className="desktop-pin-label">
         Enter Recovery Code {getErrorText()} {getCancelText()}
       </h3>
     </div>

@@ -1,0 +1,44 @@
+.user-status-button {
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  max-width: 100px;
+  width: 100%;
+  &.clear-button {
+    backdrop-filter: blur(3px);
+    background-color: rgba(white, 0.1);
+    border: 1px solid rgba(white, 0.1);
+    border-radius: 100px;
+    box-shadow: 2px 2px 2px rgba(black, 0.1);
+    cursor: pointer;
+    transition: all 250ms;
+    &:hover,
+    a.active {
+      border-radius: 100px;
+      background-color: rgba(white, 0.2);
+    }
+  }
+
+  &.sign-out-button-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 250ms, transform 250ms;
+    z-index: 2;
+    bottom: 40px;
+    left: auto;
+    right: 0px;
+    #sign-in-button {
+      &:not(:hover) {
+        animation: bounce 3s infinite;
+        animation-delay: 3s;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    & {
+      // width: ;;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.public-desktop{
+    font-family: 'Rubik', sans-serif;
+    $red: rgb(239, 83, 80);
+
+   &.logging-in,
+   &.log-in-error {
+    .desktop-shell{
+      opacity: 0;
+    }
+    .desktop-pin-wrapper {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  &.log-in-error {
+    .desktop-pin-wrapper {
+      .desktop-pin {
+        .desktop-pin-digit {
+          background-color: rgba($red, 0.05);
+          border-color: rgba($red, 0.5);
+        }
+      }
+    }
+  }
+  &.verifying-log-in {
+    .desktop-loading-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

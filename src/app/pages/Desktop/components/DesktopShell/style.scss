@@ -1,0 +1,52 @@
+.desktop-shell{
+    .desktop-main {
+      width: 100%;
+      overflow: hidden;
+      opacity: 1;
+      pointer-events: all;
+      position: relative;
+      transition: opacity 250ms, transform 250ms;
+      z-index: 2;
+  
+      .desktop-main-content-wrapper {
+        padding: 2rem 2rem;
+  
+        .desktop-main-content {
+          margin: auto;
+          max-width: 1600px;
+          position: relative;
+  
+          .desktop-main-content-header {
+            display: flex;
+            justify-content: space-between;
+            .desktop-main-content-header-section{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .avatar{
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                .avatar-icon {
+                  width: 70px;
+                  height: 70px;
+                  flex-shrink: 0;
+                  object-fit: cover;
+                  border-radius: 50%;
+                  position: relative;
+                  top: 2px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 640px) {
+      .desktop-main {
+        .desktop-main-content-wrapper{
+          padding: 1rem;
+        }
+      }
+    }
+}

@@ -1,0 +1,68 @@
+  .info {
+    @function gray($color) {
+        @return rgb($color, $color, $color);
+    }
+    
+    $yellow: rgb(253, 216, 53);
+
+    align-items: flex-end;
+    display: flex;
+
+    &.desktop-info {
+        bottom: 0px;
+        left: 0px;
+        margin: 40px;
+        margin-left: 0px;
+        opacity: 0;
+        position: absolute;
+        transform: translateX(-100%);
+        transition: margin 250ms, opacity 250ms, transform 250ms;
+        z-index: 2;
+      }
+
+    .time {
+      color: gray(245);
+      font-size: 6em;
+      height: 80px;
+      line-height: 80px;
+      text-shadow: 2px 2px 2px rgba(black, 0.1);
+    }
+
+    .weather {
+      display: inline-flex;
+      height: 20px;
+      margin-bottom: 6px;
+      margin-left: 20px;
+
+      i,
+      span {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      i {
+        color: $yellow;
+        font-size: 0.9em;
+      }
+
+      span {
+        color: white;
+      }
+
+      .weather-type {
+        height: 20px;
+      }
+
+      .weather-temperature-value {
+        font-size: 1.5em;
+        height: 20px;
+        margin-left: 5px;
+      }
+
+      .weather-temperature-unit {
+        align-items: flex-start;
+        font-size: 0.8em;
+        margin-left: 3px;
+      }
+    }
+  }

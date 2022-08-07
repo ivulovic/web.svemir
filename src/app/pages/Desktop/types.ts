@@ -1,5 +1,6 @@
 export enum UserStatusEnum {
   Registering = 'Registering',
+  Sharing = 'Sharing',
   LoggedIn = 'Logged In',
   LoggingIn = 'Logging In',
   LoggedOut = 'Logged Out',
@@ -13,5 +14,5 @@ export interface IDesktopContext {
 }
 
 export interface IInfoProps {
-  id?: string;
+  className?: string;
 }

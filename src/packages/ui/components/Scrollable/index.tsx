@@ -18,6 +18,7 @@ const defaultPosition = (): IPosition => ({
   left: 0,
   x: 0,
 });
+import './style.scss';
 
 const Scrollable: React.FC<IScrollableComponentProps> = (props: IScrollableComponentProps) => {
   const ref: React.MutableRefObject<HTMLDivElement> = React.useRef<HTMLDivElement>(null);

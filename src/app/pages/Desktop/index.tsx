@@ -1,19 +1,10 @@
 import { useAuthControllerScope } from '@controllers/auth';
 import { useSelector } from '@service';
 
-import Background from './components/Background';
-import DesktopLoading from './components/DesktopLoading';
-import Info from './components/Info';
-import Main from './components/Main';
-import NonAuthMain from './components/NonAuthMain';
-import Pin from './components/Pin';
-import UserStatusButton from './components/UserStatusButton';
 import DesktopContext from './context';
-import LoginIcon from './icons/LoginIcon';
-import RegisterIcon from './icons/RegisterIcon';
 import { UserStatusEnum } from './types';
-
-import './style.scss';
+import PrivateDesktop from './views/Private';
+import PublicDesktop from './views/Public';
 
 const Desktop: React.FC = () => {
   const authController = useAuthControllerScope();
@@ -26,26 +17,14 @@ const Desktop: React.FC = () => {
     return userStatus.replace(/\s+/g, '-').toLowerCase();
   };
 
+  const getVisibilityClass = (): string => {
+    return isLoggedIn ? 'private' : 'public';
+  };
+
   return (
     <DesktopContext.Provider value={{ userStatus, setUserStatusTo }}>
-      <div id="desktop" className={getStatusClass()}>
-        <Background />
-        {[UserStatusEnum.LoggingIn, UserStatusEnum.LogInError, UserStatusEnum.VerifyingLogIn].includes(userStatus) && (
-          <Pin />
-        )}
-        {userStatus === UserStatusEnum.LoggedIn && <Main />}
-        {userStatus === UserStatusEnum.Registering && <NonAuthMain />}
-        {userStatus === UserStatusEnum.LoggedOut && (
-          <>
-            <Info id="desktop-info" />
-            <div id="sign-in-button-wrapper">
-              <UserStatusButton icon={RegisterIcon} id="sign-in-button" userStatus={UserStatusEnum.Registering} />{' '}
-              &nbsp;
-              <UserStatusButton icon={LoginIcon} id="sign-in-button" userStatus={UserStatusEnum.LoggingIn} />
-            </div>
-          </>
-        )}
-        <DesktopLoading />
+      <div className={`desktop ${getStatusClass()} ${getVisibilityClass()}`}>
+        {isLoggedIn ? <PrivateDesktop /> : <PublicDesktop />}
       </div>
     </DesktopContext.Provider>
   );
